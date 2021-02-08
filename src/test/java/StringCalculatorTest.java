@@ -43,4 +43,16 @@ public class StringCalculatorTest {
         int actual = stringCalculator.add(addInput);
         assertEquals(expected, actual, "Should return sum for two or more comma seperated numbers");
     }
+
+    /**
+     * problem 3
+     */
+    @Test
+    public void add_ShouldHandleInputCorrectlyWithNewLineCharacters() {
+        StringCalculator stringCalculator = new StringCalculator();
+        String addInput = "1\n2,3";
+        int expected = 6;
+        int actual = stringCalculator.add(addInput);
+        assertEquals(expected, actual, "Should handle input correctly with new line characters");
+    }
 }
