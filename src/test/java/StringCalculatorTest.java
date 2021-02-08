@@ -120,5 +120,4 @@ public class StringCalculatorTest {
         });
         assertEquals("negatives not allowed: -2 -6", exception.getMessage().trim());
     }
-
 }

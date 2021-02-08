@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 /**
  * Utility class to add numbers
  */
@@ -39,15 +37,16 @@ public class StringCalculator {
             startIndex++;
             seperator = this.getSeperator(input);
         }
+        StringBuilder negativeNumbersList = new StringBuilder();
         for (int i = startIndex; i < inputArrayWithoutNewLine.length; i++) {
             String inputArray[] = inputArrayWithoutNewLine[i].split(seperator);
             for (String inputStringValue : inputArray) {
                 int number = Integer.parseInt(inputStringValue);
-                if (number < 0) throw new Exception("negatives not allowed");
+                if (number < 0) negativeNumbersList.append(number + " ");
                 answer += number;
             }
         }
-
+        if (negativeNumbersList.length() > 0) throw new Exception("negatives not allowed: " + negativeNumbersList.toString());
         return answer;
     }
 
