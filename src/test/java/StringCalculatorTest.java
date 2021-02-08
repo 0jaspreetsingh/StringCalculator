@@ -140,6 +140,7 @@ public class StringCalculatorTest {
 
     /**
      * problem 9
+     *
      * @throws Exception
      */
     @Test
@@ -149,5 +150,19 @@ public class StringCalculatorTest {
         int expected = 18;
         int actual = stringCalculator.add(addInput);
         assertEquals(expected, actual, "Should ignore numners greater than 1000");
+    }
+
+    /**
+     * problem 10
+     *
+     * @throws Exception
+     */
+    @Test
+    public void add_ShouldAllowDelimitersWithLengthGreaterThanOne() throws Exception {
+        StringCalculator stringCalculator = new StringCalculator();
+        String addInput = "//****\n1****2";
+        int expected = 3;
+        int actual = stringCalculator.add(addInput);
+        assertEquals(expected, actual, "Should allow Delimiters greater than one");
     }
 }
