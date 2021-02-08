@@ -55,4 +55,16 @@ public class StringCalculatorTest {
         int actual = stringCalculator.add(addInput);
         assertEquals(expected, actual, "Should handle input correctly with new line characters");
     }
+
+    /**
+     * problem 3
+     */
+    @Test
+    public void add_ShouldHandleInputCorrectlyWithMultipleNewLineCharacters() {
+        StringCalculator stringCalculator = new StringCalculator();
+        String addInput = "1\n2,3,5\n7";
+        int expected = 18;
+        int actual = stringCalculator.add(addInput);
+        assertEquals(expected, actual, "Should handle input correctly with new line characters");
+    }
 }
