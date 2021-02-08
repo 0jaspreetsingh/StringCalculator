@@ -35,13 +35,14 @@ public class StringCalculator {
         int answer = 0;
         String seperator = this.DEFAULT_SEPERATOR;
         int startIndex = 0;
+        // check if seperator is overriden
         if (input.startsWith(this.DEFAULT_SEPERATOR_OVERRIDE)) {
-            startIndex++;
+            startIndex++; // to skip value before first new line as it specifies Delimiters
             String seperatorList[] = this.getSeperator(input);
             seperator = seperatorList[0];
             if (seperatorList.length > 1) {
                 for (int i = 1; i < seperatorList.length; i++) {
-                    input = input.replace(seperatorList[i], seperator);
+                    input = input.replace(seperatorList[i], seperator); // replacing multipe Delimiters with a single value for parsing easily
                 }
             }
         }
@@ -86,6 +87,12 @@ public class StringCalculator {
         return new String[]{seperatorsString};
     }
 
+    /**
+     * ensure that special characters does not break code
+     *
+     * @param seperator
+     * @return
+     */
     private String refractorSeperator(String seperator) {
         StringBuilder sb = new StringBuilder();
         for (char c : seperator.toCharArray()) {
@@ -94,10 +101,21 @@ public class StringCalculator {
         return sb.toString();
     }
 
+    /**
+     * to avoid String.split function's error for these specific characters
+     *
+     * @param c
+     * @return
+     */
     private boolean isDanglingCharacter(char c) {
         return c == '?' || c == '^' || c == '*' || c == '+' || c == '$';
     }
 
+    /**
+     * number of times the add function is called
+     *
+     * @return
+     */
     public int getCalledCount() {
         return this.calledCount;
     }
