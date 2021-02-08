@@ -137,4 +137,17 @@ public class StringCalculatorTest {
         });
         assertEquals(2, stringCalculator.getCalledCount());
     }
+
+    /**
+     * problem 9
+     * @throws Exception
+     */
+    @Test
+    public void add_ShouldIgnorenumbersGreaterThan1000() throws Exception {
+        StringCalculator stringCalculator = new StringCalculator();
+        String addInput = "1\n2,3,5\n7,2000";
+        int expected = 18;
+        int actual = stringCalculator.add(addInput);
+        assertEquals(expected, actual, "Should ignore numners greater than 1000");
+    }
 }
