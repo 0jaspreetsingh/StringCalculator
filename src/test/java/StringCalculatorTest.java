@@ -160,9 +160,25 @@ public class StringCalculatorTest {
     @Test
     public void add_ShouldAllowDelimitersWithLengthGreaterThanOne() throws Exception {
         StringCalculator stringCalculator = new StringCalculator();
-        String addInput = "//****\n1****2";
+        String addInput = "//[****]\n1****2";
         int expected = 3;
         int actual = stringCalculator.add(addInput);
         assertEquals(expected, actual, "Should allow Delimiters greater than one");
     }
+
+    /**
+     * problem 11 and 12
+     *
+     * @throws Exception
+     */
+    @Test
+    public void add_ShouldAllowMultipleDelimiters() throws Exception {
+        StringCalculator stringCalculator = new StringCalculator();
+        String addInput = "//[*][%]\n1*2%3";
+        int expected = 6;
+        int actual = stringCalculator.add(addInput);
+        assertEquals(expected, actual, "Should allow multiple Delimiters");
+    }
+
+
 }
