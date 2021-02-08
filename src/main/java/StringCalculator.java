@@ -43,7 +43,7 @@ public class StringCalculator {
             String inputArray[] = inputArrayWithoutNewLine[i].split(seperator);
             for (String inputStringValue : inputArray) {
                 int number = Integer.parseInt(inputStringValue);
-                if (number < 0) throw new Exception("“negatives not allowed");
+                if (number < 0) throw new Exception("negatives not allowed");
                 answer += number;
             }
         }

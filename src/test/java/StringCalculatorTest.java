@@ -102,8 +102,9 @@ public class StringCalculatorTest {
         String addInput = "//^\n1^-2";
         int expected = 3;
 
-        assertThrows(Exception.class, () -> {
+        Exception exception = assertThrows(Exception.class, () -> {
             stringCalculator.add(addInput);
         });
+        assertEquals("negatives not allowed", exception.getMessage());
     }
 }
