@@ -45,6 +45,7 @@ public class StringCalculator {
             for (String inputStringValue : inputArray) {
                 int number = Integer.parseInt(inputStringValue);
                 if (number < 0) negativeNumbersList.append(number + " ");
+                if (number > 1000) number = 0;
                 answer += number;
             }
         }
