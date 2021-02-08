@@ -8,6 +8,7 @@ public class StringCalculator {
     private String NEW_LINE = "\n";
     private String DEFAULT_SEPERATOR_OVERRIDE = "//";
     private String BACK_SLASH = "\\";
+    private int calledCount = 0;
 
 
     /**
@@ -17,6 +18,7 @@ public class StringCalculator {
      * @return
      */
     public int add(String input) throws Exception {
+        this.calledCount++;
         if (this.EMPTY_STRING == input || this.EMPTY_STRING == input.trim()) return 0;
         return this.getSum(input);
     }
@@ -46,7 +48,8 @@ public class StringCalculator {
                 answer += number;
             }
         }
-        if (negativeNumbersList.length() > 0) throw new Exception("negatives not allowed: " + negativeNumbersList.toString());
+        if (negativeNumbersList.length() > 0)
+            throw new Exception("negatives not allowed: " + negativeNumbersList.toString());
         return answer;
     }
 
@@ -67,5 +70,9 @@ public class StringCalculator {
 
     private boolean isDanglingCharacter(char c) {
         return c == '?' || c == '^' || c == '*' || c == '+' || c == '$';
+    }
+
+    public int getCalledCount() {
+        return this.calledCount;
     }
 }

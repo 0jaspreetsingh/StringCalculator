@@ -120,4 +120,21 @@ public class StringCalculatorTest {
         });
         assertEquals("negatives not allowed: -2 -6", exception.getMessage().trim());
     }
+
+    /**
+     * problem 7
+     *
+     * @throws Exception
+     */
+    @Test
+    public void add_ShouldCheckCallCountforAddMethod() throws Exception {
+        StringCalculator stringCalculator = new StringCalculator();
+        stringCalculator.add("1\n2,3");
+        String addInput = "//^\n1^-2^-6";
+        int excepted = 2;
+        Exception exception = assertThrows(Exception.class, () -> {
+            stringCalculator.add(addInput);
+        });
+        assertEquals(2, stringCalculator.getCalledCount());
+    }
 }
