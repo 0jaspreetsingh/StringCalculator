@@ -18,7 +18,7 @@ public class StringCalculator {
      * @param input
      * @return
      */
-    public int add(String input) {
+    public int add(String input) throws Exception {
         if (this.EMPTY_STRING == input || this.EMPTY_STRING == input.trim()) return 0;
         return this.getSum(input);
     }
@@ -30,7 +30,7 @@ public class StringCalculator {
      * @param input
      * @return
      */
-    private int getSum(String input) {
+    private int getSum(String input) throws Exception {
         int answer = 0;
         String inputArrayWithoutNewLine[] = input.split(this.NEW_LINE);
         String seperator = this.DEFAULT_SEPERATOR;
@@ -40,11 +40,11 @@ public class StringCalculator {
             seperator = this.getSeperator(input);
         }
         for (int i = startIndex; i < inputArrayWithoutNewLine.length; i++) {
-            System.out.println(seperator);
             String inputArray[] = inputArrayWithoutNewLine[i].split(seperator);
-            System.out.println(Arrays.toString(inputArray));
             for (String inputStringValue : inputArray) {
-                answer += Integer.parseInt(inputStringValue);
+                int number = Integer.parseInt(inputStringValue);
+                if (number < 0) throw new Exception("“negatives not allowed");
+                answer += number;
             }
         }
 
