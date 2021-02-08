@@ -74,9 +74,21 @@ public class StringCalculatorTest {
     @Test
     public void add_ShouldHandleinputCorrectlyForDifferentSeperatorSpecifiedAtBeginning() {
         StringCalculator stringCalculator = new StringCalculator();
-        String addInput = "“//;\n1;2";
+        String addInput = "//;\n1;2";
         int expected = 3;
         int actual = stringCalculator.add(addInput);
         assertEquals(expected, actual, "Should handle input correctly for different seperator specified at beginning");
+    }
+
+    /**
+     * problem 4
+     */
+    @Test
+    public void add_ShouldHandleinputCorrectlyForDifferentSeperatorSpecified() {
+        StringCalculator stringCalculator = new StringCalculator();
+        String addInput = "//^\n1^2";
+        int expected = 3;
+        int actual = stringCalculator.add(addInput);
+        assertEquals(expected, actual, "Should handle input correctly for different seperator specified");
     }
 }
