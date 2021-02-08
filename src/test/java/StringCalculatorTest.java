@@ -94,17 +94,31 @@ public class StringCalculatorTest {
     }
 
     /**
-     * problem 4
+     * problem 5
      */
     @Test
     public void add_ShouldThrowExceptionForNegativeNumbersInInput() throws Exception {
         StringCalculator stringCalculator = new StringCalculator();
         String addInput = "//^\n1^-2";
-        int expected = 3;
 
         Exception exception = assertThrows(Exception.class, () -> {
             stringCalculator.add(addInput);
         });
-        assertEquals("negatives not allowed", exception.getMessage());
+        assertEquals("negatives not allowed: -2", exception.getMessage().trim());
     }
+
+    /**
+     * problem 6
+     */
+    @Test
+    public void add_ShouldThrowExceptionAlongWithListOfNegativeNumbersInInput() throws Exception {
+        StringCalculator stringCalculator = new StringCalculator();
+        String addInput = "//^\n1^-2^-6";
+
+        Exception exception = assertThrows(Exception.class, () -> {
+            stringCalculator.add(addInput);
+        });
+        assertEquals("negatives not allowed: -2 -6", exception.getMessage().trim());
+    }
+
 }
